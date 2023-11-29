@@ -16,54 +16,61 @@ runcmd:
   - chmod +x /usr/local/bin/consul-k8s
 
 write_files:
-  - path: /home/ubuntu/counting.yaml
+  - path: /home/ubuntu/static-client.yaml
     defer: true
     encoding: base64
     content: |
-      YXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZUFjY291bnQKbWV0YWRhdGE6CiAgbmFtZTogY291
-      bnRpbmcKICBuYW1lc3BhY2U6IGRlZmF1bHQKYXV0b21vdW50U2VydmljZUFjY291bnRUb2tlbjog
-      dHJ1ZQotLS0KYXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZQptZXRhZGF0YToKICBuYW1lOiBj
-      b3VudGluZwogIG5hbWVzcGFjZTogZGVmYXVsdAogIGxhYmVsczoKICAgIGFwcDogY291bnRpbmcK
-      c3BlYzoKICB0eXBlOiBDbHVzdGVySVAKICBwb3J0czoKICAtIHBvcnQ6IDkwMDEKICAgIHRhcmdl
-      dFBvcnQ6IDkwMDEKICBzZWxlY3RvcjoKICAgIGFwcDogY291bnRpbmcKLS0tCmFwaVZlcnNpb246
-      IGFwcHMvdjEKa2luZDogRGVwbG95bWVudAptZXRhZGF0YToKICBsYWJlbHM6CiAgICBhcHA6IGNv
-      dW50aW5nCiAgbmFtZTogY291bnRpbmcKc3BlYzoKICByZXBsaWNhczogMQogIHNlbGVjdG9yOgog
-      ICAgbWF0Y2hMYWJlbHM6CiAgICAgIGFwcDogY291bnRpbmcKICB0ZW1wbGF0ZToKICAgIG1ldGFk
-      YXRhOgogICAgICBhbm5vdGF0aW9uczoKICAgICAgICBjb25zdWwuaGFzaGljb3JwLmNvbS9jb25u
-      ZWN0LWluamVjdDogJ3RydWUnCiAgICAgIGxhYmVsczoKICAgICAgICBhcHA6IGNvdW50aW5nCiAg
-      ICBzcGVjOgogICAgICBzZXJ2aWNlQWNjb3VudE5hbWU6IGNvdW50aW5nCiAgICAgIGNvbnRhaW5l
-      cnM6CiAgICAgIC0gbmFtZTogY291bnRpbmcKICAgICAgICBpbWFnZTogaGFzaGljb3JwL2NvdW50
-      aW5nLXNlcnZpY2U6MC4wLjIKICAgICAgICBpbWFnZVB1bGxQb2xpY3k6IElmTm90UHJlc2VudAog
-      ICAgICAgIHBvcnRzOgogICAgICAgIC0gY29udGFpbmVyUG9ydDogOTAwMQoK
+      YXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZUFjY291bnQKbWV0YWRhdGE6CiAgbmFtZTogc3Rh
+      dGljLWNsaWVudAotLS0KYXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZQptZXRhZGF0YToKICBu
+      YW1lOiBzdGF0aWMtY2xpZW50CnNwZWM6CiAgc2VsZWN0b3I6CiAgICBhcHA6IHN0YXRpYy1jbGll
+      bnQKICBwb3J0czoKICAgIC0gcG9ydDogNDMyMQogICAgICB0YXJnZXRQb3J0OiA0MzIxCi0tLQph
+      cGlWZXJzaW9uOiBhcHBzL3YxCmtpbmQ6IERlcGxveW1lbnQKbWV0YWRhdGE6CiAgbGFiZWxzOgog
+      ICAgYXBwOiBzdGF0aWMtY2xpZW50CiAgbmFtZTogc3RhdGljLWNsaWVudApzcGVjOgogIHJlcGxp
+      Y2FzOiAxCiAgc2VsZWN0b3I6CiAgICBtYXRjaExhYmVsczoKICAgICAgYXBwOiBzdGF0aWMtY2xp
+      ZW50CiAgdGVtcGxhdGU6CiAgICBtZXRhZGF0YToKICAgICAgYW5ub3RhdGlvbnM6CiAgICAgICAg
+      Y29uc3VsLmhhc2hpY29ycC5jb20vY29ubmVjdC1pbmplY3Q6ICd0cnVlJwogICAgICAgIGNvbnN1
+      bC5oYXNoaWNvcnAuY29tL3RyYW5zcGFyZW50LXByb3h5OiAnZmFsc2UnCiAgICAgICAgY29uc3Vs
+      Lmhhc2hpY29ycC5jb20vY29ubmVjdC1zZXJ2aWNlLXVwc3RyZWFtczogJ3N0YXRpYy1zZXJ2ZXI6
+      ODA4MDprM3MtdXMnCiAgICAgIGxhYmVsczoKICAgICAgICBhcHA6IHN0YXRpYy1jbGllbnQKICAg
+      IHNwZWM6CiAgICAgIHNlcnZpY2VBY2NvdW50TmFtZTogc3RhdGljLWNsaWVudAogICAgICBjb250
+      YWluZXJzOgogICAgICAgIC0gbmFtZTogc3RhdGljLWNsaWVudAogICAgICAgICAgaW1hZ2U6IGN1
+      cmxpbWFnZXMvY3VybDo3Ljc3LjAKICAgICAgICAgIHBvcnRzOgogICAgICAgICAgICAtIGNvbnRh
+      aW5lclBvcnQ6IDQzMjEKICAgICAgICAgIGNvbW1hbmQ6IFsnL2Jpbi9zaCcsICctYycsICctLSdd
+      CiAgICAgICAgICBhcmdzOiBbJ3doaWxlIHRydWU7IGRvIHNsZWVwIDMwOyBkb25lOyddCgo=
 
-  - path: /home/ubuntu/dashboard.yaml
+  - path: /home/ubuntu/static-server.yaml
     defer: true
     encoding: base64
     content: |
-      YXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZUFjY291bnQKbWV0YWRhdGE6CiAgbmFtZTogZGFz
-      aGJvYXJkCiAgbmFtZXNwYWNlOiBkZWZhdWx0CmF1dG9tb3VudFNlcnZpY2VBY2NvdW50VG9rZW46
-      IHRydWUKLS0tCmFwaVZlcnNpb246IHYxCmtpbmQ6IFNlcnZpY2UKbWV0YWRhdGE6CiAgbmFtZTog
-      ZGFzaGJvYXJkCiAgbmFtZXNwYWNlOiBkZWZhdWx0CiAgbGFiZWxzOgogICAgYXBwOiBkYXNoYm9h
-      cmQKc3BlYzoKICB0eXBlOiBDbHVzdGVySVAKICBwb3J0czoKICAtIHBvcnQ6IDkwMDIKICAgIHRh
-      cmdldFBvcnQ6IDkwMDIKICBzZWxlY3RvcjoKICAgIGFwcDogZGFzaGJvYXJkCi0tLQphcGlWZXJz
-      aW9uOiBhcHBzL3YxCmtpbmQ6IERlcGxveW1lbnQKbWV0YWRhdGE6CiAgbGFiZWxzOgogICAgYXBw
-      OiBkYXNoYm9hcmQKICBuYW1lOiBkYXNoYm9hcmQKc3BlYzoKICByZXBsaWNhczogMQogIHNlbGVj
-      dG9yOgogICAgbWF0Y2hMYWJlbHM6CiAgICAgIGFwcDogZGFzaGJvYXJkCiAgdGVtcGxhdGU6CiAg
-      ICBtZXRhZGF0YToKICAgICAgYW5ub3RhdGlvbnM6CiAgICAgICAgY29uc3VsLmhhc2hpY29ycC5j
-      b20vY29ubmVjdC1pbmplY3Q6ICd0cnVlJwogICAgICAgIGNvbnN1bC5oYXNoaWNvcnAuY29tL2Nv
-      bm5lY3Qtc2VydmljZS11cHN0cmVhbXM6ICdjb3VudGluZzo5MDAxJwogICAgICBsYWJlbHM6CiAg
-      ICAgICAgYXBwOiBkYXNoYm9hcmQKICAgIHNwZWM6CiAgICAgIHNlcnZpY2VBY2NvdW50TmFtZTog
-      ZGFzaGJvYXJkCiAgICAgIGNvbnRhaW5lcnM6CiAgICAgIC0gbmFtZTogZGFzaGJvYXJkCiAgICAg
-      ICAgaW1hZ2U6IGhhc2hpY29ycC9kYXNoYm9hcmQtc2VydmljZTowLjAuNAogICAgICAgIGltYWdl
-      UHVsbFBvbGljeTogSWZOb3RQcmVzZW50CiAgICAgICAgcG9ydHM6CiAgICAgICAgLSBjb250YWlu
-      ZXJQb3J0OiA5MDAyCiAgICAgICAgZW52OgogICAgICAgIC0gbmFtZTogQ09VTlRJTkdfU0VSVklD
-      RV9VUkwKICAgICAgICAgIHZhbHVlOiAnaHR0cDovL2xvY2FsaG9zdDo5MDAxJwoK
+      YXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZUFjY291bnQKbWV0YWRhdGE6CiAgbmFtZTogc3Rh
+      dGljLXNlcnZlcgotLS0KYXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZQptZXRhZGF0YToKICBu
+      YW1lOiBzdGF0aWMtc2VydmVyCnNwZWM6CiAgc2VsZWN0b3I6CiAgICBhcHA6IHN0YXRpYy1zZXJ2
+      ZXIKICBwb3J0czoKICAgIC0gcG9ydDogMTIzNAogICAgICB0YXJnZXRQb3J0OiA4MDgwCi0tLQph
+      cGlWZXJzaW9uOiBhcHBzL3YxCmtpbmQ6IERlcGxveW1lbnQKbWV0YWRhdGE6CiAgbGFiZWxzOgog
+      ICAgYXBwOiBzdGF0aWMtc2VydmVyCiAgbmFtZTogc3RhdGljLXNlcnZlcgpzcGVjOgogIHJlcGxp
+      Y2FzOiAxCiAgc2VsZWN0b3I6CiAgICBtYXRjaExhYmVsczoKICAgICAgYXBwOiBzdGF0aWMtc2Vy
+      dmVyCiAgdGVtcGxhdGU6CiAgICBtZXRhZGF0YToKICAgICAgYW5ub3RhdGlvbnM6CiAgICAgICAg
+      Y29uc3VsLmhhc2hpY29ycC5jb20vY29ubmVjdC1pbmplY3Q6ICd0cnVlJwogICAgICBsYWJlbHM6
+      CiAgICAgICAgYXBwOiBzdGF0aWMtc2VydmVyCiAgICBzcGVjOgogICAgICBzZXJ2aWNlQWNjb3Vu
+      dE5hbWU6IHN0YXRpYy1zZXJ2ZXIKICAgICAgY29udGFpbmVyczoKICAgICAgICAtIG5hbWU6IHN0
+      YXRpYy1zZXJ2ZXIKICAgICAgICAgIGltYWdlOiB2aWozc2gvaHR0cC1lY2hvOjEuMC4wCiAgICAg
+      ICAgICBhcmdzOgogICAgICAgICAgICAtIC10ZXh0PSJoZWxsbyB3b3JsZCIKICAgICAgICAgICAg
+      LSAtbGlzdGVuPTo4MDgwCiAgICAgICAgICBwb3J0czoKICAgICAgICAgICAgLSBjb250YWluZXJQ
+      b3J0OiA4MDgwCiAgICAgICAgICAgICAgbmFtZTogaHR0cAoK
 
-  - path: /home/ubuntu/intention.yaml
+  - path: /home/ubuntu/service-intention.yaml
     defer: true
     encoding: base64
     content: |
       YXBpVmVyc2lvbjogY29uc3VsLmhhc2hpY29ycC5jb20vdjFhbHBoYTEKa2luZDogU2VydmljZUlu
-      dGVudGlvbnMKbWV0YWRhdGE6CiAgbmFtZTogZGFzaGJvYXJkLXRvLWNvdW50aW5nCnNwZWM6CiAg
-      ZGVzdGluYXRpb246CiAgICBuYW1lOiBjb3VudGluZwogIHNvdXJjZXM6CiAgICAtIG5hbWU6IGRh
-      c2hib2FyZAogICAgICBhY3Rpb246IGFsbG93Cg==
+      dGVudGlvbnMKbWV0YWRhdGE6CiAgbmFtZTogc3RhdGljLWNsaWVudC10by1zdGF0aWMtc2VydmVy
+      CnNwZWM6CiAgZGVzdGluYXRpb246CiAgICBuYW1lOiBzdGF0aWMtc2VydmVyCiAgc291cmNlczoK
+      ICAgIC0gbmFtZTogc3RhdGljLWNsaWVudAogICAgICBhY3Rpb246IGFsbG93Cgo=
+
+  - path: /home/ubuntu/proxy-defaults.yaml
+    defer: true
+    encoding: base64
+    content: |
+      YXBpVmVyc2lvbjogY29uc3VsLmhhc2hpY29ycC5jb20vdjFhbHBoYTEKa2luZDogUHJveHlEZWZh
+      dWx0cwptZXRhZGF0YToKICBuYW1lOiBnbG9iYWwKc3BlYzoKICBtZXNoR2F0ZXdheToKICAgIG1v
+      ZGU6IGxvY2FsCiAgY29uZmlnOgogICAgcHJvdG9jb2w6IGh0dHAK
